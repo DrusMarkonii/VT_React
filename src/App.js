@@ -1,27 +1,24 @@
-import React from 'react'
-import PrevState from './usePrevValue'
-import useFetch from './useFetch';
-import { useState } from 'react/cjs/react.development';
+import useEventListener from './useEventListener'
+import react, { useCallback, useState } from 'react'
 
 
-function App() {       
+function App() {
   
-  const {data, loading, error} = useFetch('https://jsonplaceholder.typicode.com/todos')
-
-  if(loading) return 'Loading....'
-
-  if(error) {
-    console.log('error___', error)
-    return null
-  }
-
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  
+  const handler = useCallback(
+    ({ clientX, clientY }) => {
+      
+      setCoords({ x: clientX, y: clientY });
+    },
+    [setCoords]
+  );
+  
+  useEventListener("mousemove", handler);
   return (
-    <div className="App">
-     
-      <h1>hello</h1>
-      {/* <pre>{JSON.stringify(data,null, 2)}</pre> */}
-      <PrevState />
-    </div>
+    <h1>
+      The mouse position is ({coords.x}, {coords.y})
+    </h1>
   );
 }
 
