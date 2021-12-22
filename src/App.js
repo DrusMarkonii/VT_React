@@ -1,32 +1,23 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+
+import useFetch from './useFetch';
 
 
 function App() {       
+  
+  const {data, loading, error} = useFetch('https://jsonplaceholder.typicode.com/todos')
 
-  const [type, setType] = useState('users')
-  const [data, setData] = useState()
-  
- 
-  
+  if(loading) return 'Loading....'
 
-  useEffect(() => {
-   setTimeout( () => {
-    fetch(`https://jsonplaceholder.typicode.com/${type}`)
-      .then(response => response.json())
-      .then(json => setData(json))
-   }, 2000)
-  })
-  
+  if(error) {
+    console.log('error___', error)
+    return null
+  }
 
   return (
     <div className="App">
-      <h1>Resource: {type}</h1>
-      <button onClick={() => {setType('users')}}>users</button>
-      <button onClick={() => {setType('todos')}}>todos</button>
-      <button onClick={() => {setType('posts')}}>posts</button>
-      
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      
+      <h1>hello</h1>
+      <pre>{JSON.stringify(data,null, 2)}</pre>
     </div>
   );
 }

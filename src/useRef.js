@@ -14,9 +14,7 @@ function App() {
 
   const inputRef = useRef(null)
 
-  const styles = {
-    color:'red'
-  }
+  
 
   const handleOnChangeInput = e => {
     const {name, value} = e.target;
