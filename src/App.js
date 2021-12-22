@@ -1,6 +1,7 @@
 import React from 'react'
-
+import PrevState from './usePrevValue'
 import useFetch from './useFetch';
+import { useState } from 'react/cjs/react.development';
 
 
 function App() {       
@@ -16,8 +17,10 @@ function App() {
 
   return (
     <div className="App">
+     
       <h1>hello</h1>
-      <pre>{JSON.stringify(data,null, 2)}</pre>
+      {/* <pre>{JSON.stringify(data,null, 2)}</pre> */}
+      <PrevState />
     </div>
   );
 }
