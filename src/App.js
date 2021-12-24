@@ -3,31 +3,34 @@ import Header from "./components/header/Header";
 import Nav from "./components/nav/Nav";
 import Footer from "./components/footer/Footer";
 import Content from "./components/content/content"
-import logoImg from "./accets/img/logo.png";
 import "./accets/styles/App-style.css"
+import Title from "./components/title/Title";
+
 
 
 function App() {
   
+  const logoImg = "https://yt3.ggpht.com/BfugJfgLpCxpVSocdwCWkPBuicPNbA-f6xh3IM8e3tdZwDCo7sP7PJh6VhrUbJrDnY8d9fhLHA=s900-c-k-c0x00ffffff-no-rj"
   return (
     <div className="wrapper">
-      <Header logoImg = {logoImg} title="Welcome to React"/>
+      <Header logoImg = {logoImg} title="Welcome to Shop"/>
       <Nav sections={
         [
           {
-            title: 'Docs',
-            link: 'https://ru.reactjs.org/docs/getting-started.html'
+            title: 'Promotions sale',
+            link: 'https://www.ozon.ru/info/actions/'
           },
           {
-            title: 'Tutorial',
-            link: 'https://reactjs.org/tutorial/tutorial.html'
+            title: 'Electronics',
+            link: 'https://www.ozon.ru/category/elektronika-15500/'
           },
           {
-            title: 'Community',
-            link: 'https://reactjs.org/community/support.html'
+            title: 'Clothes',
+            link: 'https://www.ozon.ru/info/main-apparel/'
           }
         ]
       }/>
+      <Title title="Goods"/>
       <Content />
       <Footer />
       

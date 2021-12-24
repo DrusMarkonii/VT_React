@@ -8,7 +8,7 @@ function Button(props) {
        
     return (
         <div>
-            <div className={props.className}>Push me</div>
+            <div className={props.className}>See more</div>
         </div>
     )
 }

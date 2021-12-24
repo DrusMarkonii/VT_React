@@ -7,7 +7,7 @@ function Card(props) {
        
 
     return (
-        <div className='cards'>
+        <div className='cards' id={props.id}>
             <div className='product-item' style={{backgroundColor: color}}>
                 <img src={props.img} alt={props.title}/>
                 <div className="product-list">
