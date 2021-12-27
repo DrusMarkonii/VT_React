@@ -6,7 +6,7 @@ function Title(props) {
 
     return (
         <div className='title'>
-            <h2>{title}</h2>
+             <h2>{document.title = title}</h2>
         </div>
     )
 }
