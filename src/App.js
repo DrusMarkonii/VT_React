@@ -5,14 +5,14 @@ import Footer from "./components/footer/Footer";
 import Content from "./components/content/content"
 import "./accets/styles/App-style.css"
 import Title from "./components/title/Title";
-// import ListItem from "./components/ListItem/ListItem";
-import CitiesList from "./components/CitiesList";
-import City from "./components/City";
+import ListItem from "./components/ListItem/ListItem";
+import CitiesList from "./components/CitiesList/CitiesList";
+import City from "./components/City/City";
 
 
 
 function App() {
-  
+  //для компонентов CitiesList и Citу ----------------------------------
   const [cities, setCities] = useState([
     {name: 'Moscow', description: 'Big city with a lot of:'},
     {name: 'Minsk', description: 'Middle city such as:'},
@@ -32,11 +32,22 @@ function App() {
         }
 
         return city;
+
       }
     ))
   }
 
   const handlerSelectCity = (n) => {setCurrentIndex(n)}
+//--------------------------------
+
+  const onCheck = (ingredientName, checked ) =>  {
+    console.log(checked, ingredientName)
+  }
+
+
+
+
+
 
   const logoImg = "https://yt3.ggpht.com/BfugJfgLpCxpVSocdwCWkPBuicPNbA-f6xh3IM8e3tdZwDCo7sP7PJh6VhrUbJrDnY8d9fhLHA=s900-c-k-c0x00ffffff-no-rj"
   return (
@@ -60,7 +71,11 @@ function App() {
       }/>
       <Title title="Goods"/>
       <Content />
-      {/* <ListItem /> */}
+      <ListItem ingredientName="milk" onCheckIngredient={onCheck}/>
+      <ListItem ingredientName="meat" onCheckIngredient={onCheck}/>
+      <ListItem ingredientName="bread" onCheckIngredient={onCheck}/>
+      <ListItem ingredientName="sausages" onCheckIngredient={onCheck}/>
+      <ListItem ingredientName="butter" onCheckIngredient={onCheck}/>
       <City 
         cities={cities} 
         onChangeCity={handlerChangeCity}
