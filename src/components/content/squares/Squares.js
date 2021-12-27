@@ -3,28 +3,46 @@ import './style.css'
 
 function Squares() {
     const [visibility, setVisibility] = useState({
-        redSquares: true,
-        greenSquares: true
+        redSquare: true,
+        greenSquare: true
     })
 
     function handlerClick(e) {
-        const target = e.target
+        const square = e.currentTarget.id === 'greenSquare' ? 'redSquare' : 'greenSquare';
+        setVisibility({...visibility, [e.currentTarget.id]: false, [square]: true})
+        console.log(e.currentTarget.id)
+        console.log(visibility.redSquare)
+        console.log(visibility.greenSquare)
+  }
 
-        target.style="color: white"
-        
+    if(visibility.greenSquare && visibility.redSquare) {
+        return (
+            <div className='squares' >
+                <div className='square green-square' id='greenSquare' onClick={handlerClick}></div>
+                <div className='square red-square' id='redSquare' onClick={handlerClick}></div>
+            </div>
+        )
     }
-    
+       
 
-    return (
-        <div className='squares'>
-           <div onClick={handlerClick} className='squares red-square '>
+    if(visibility.greenSquare) {
+        return (
+            <div className='squares' >
+                <div className='square green-square' id='greenSquare' onClick={handlerClick}></div>
+                <div className='square red-square white-square' id='redSquare' onClick={handlerClick}></div>
+            </div>
+        )
+    }
 
-           </div>
-           <div  onClick={handlerClick} className='squares green-square '>
-
-           </div>
-        </div>
-    )
+    if(visibility.redSquare) {
+        return (
+            <div className='squares' >
+                <div className='square green-square white-square' id='greenSquare' onClick={handlerClick}></div>
+                <div className='square red-square ' id='redSquare' onClick={handlerClick}></div>
+            </div>
+        )
+    }
 }
+
 
 export default Squares

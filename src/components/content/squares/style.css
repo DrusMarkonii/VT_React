@@ -16,8 +16,9 @@
     background-color: green;
     width: 300px;
     height: 200px;
+    margin-right: 350px;
 }
 
-.white {
+.white-square {
     background-color: white;
 }
