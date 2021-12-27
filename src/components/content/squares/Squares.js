@@ -10,9 +10,6 @@ function Squares() {
     function handlerClick(e) {
         const square = e.currentTarget.id === 'greenSquare' ? 'redSquare' : 'greenSquare';
         setVisibility({...visibility, [e.currentTarget.id]: false, [square]: true})
-        console.log(e.currentTarget.id)
-        console.log(visibility.redSquare)
-        console.log(visibility.greenSquare)
   }
 
     if(visibility.greenSquare && visibility.redSquare) {
