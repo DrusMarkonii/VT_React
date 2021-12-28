@@ -71,11 +71,11 @@ function App() {
       }/>
       <Title title="Goods"/>
       <Content />
-      <ListItem ingredientName="milk" onCheckIngredient={onCheck} isCounter="true"/>
-      <ListItem ingredientName="meat" onCheckIngredient={onCheck} isCounter="true"/>
-      <ListItem ingredientName="bread" onCheckIngredient={onCheck} isCounter="false"/>
-      <ListItem ingredientName="sausages" onCheckIngredient={onCheck} isCounter="true"/>
-      <ListItem ingredientName="butter" onCheckIngredient={onCheck} isCounter="true"/>
+      <ListItem ingredientName="milk" onCheckIngredient={onCheck} isCounter={true}/>
+      <ListItem ingredientName="meat" onCheckIngredient={onCheck} isCounter={false}/>
+      <ListItem ingredientName="bread" onCheckIngredient={onCheck} isCounter={false}/>
+      <ListItem ingredientName="sausages" onCheckIngredient={onCheck} isCounter={true}/>
+      <ListItem ingredientName="butter" onCheckIngredient={onCheck} isCounter={false}/>
       <City 
         cities={cities} 
         onChangeCity={handlerChangeCity}

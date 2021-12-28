@@ -9,11 +9,11 @@ function ListItem(props) {
 
         setChecked(!checked)
 
-        if (props.isCounter === "true" && !checked) {
+        if (props.isCounter && !checked) {
             setCount(1)
             props.onCheckIngredient(!checked, props.ingredientName, count + 1)
 
-        } else if (props.isCounter === "true" && checked) {
+        } else if (props.isCounter  && checked) {
             setCount(0);
             props.onCheckIngredient(!checked, props.ingredientName, count)
         }
@@ -45,7 +45,7 @@ function ListItem(props) {
         <div className='product-list'>
             {props.ingredientName}
             <input type="checkbox" checked={checked} onChange={handelClick} />
-            {props.isCounter === "true" ? 
+            {props.isCounter ? 
                 <div className='control-panel'>
                     <button className='btn btn-decrement' onClick={decrement}>-</button>
                     <span> {count} </span>
