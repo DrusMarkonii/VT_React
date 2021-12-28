@@ -3,28 +3,40 @@ import './style.css'
 
 function ListItem(props) {
     const [checked, setChecked] = useState(false);
-    const [count, setCount] = useState(1)
+    const [count, setCount] = useState(0)
 
     const handelClick = () => {
+
         setChecked(!checked)
 
-        props.onCheckIngredient(!checked, props.ingredientName, count)
-        
-        
+        if (props.isCounter === "true" && !checked) {
+            setCount(1)
+            props.onCheckIngredient(!checked, props.ingredientName, count + 1)
+
+        } else if (props.isCounter === "true" && checked) {
+            setCount(0);
+            props.onCheckIngredient(!checked, props.ingredientName, count)
+        }
+        else {
+            !checked ? 
+            props.onCheckIngredient(!checked, props.ingredientName, count + 1) : 
+            props.onCheckIngredient(!checked, props.ingredientName, count) 
+        }
+
     }
 
     const decrement = () => {
         if (count > 1) {
-            setCount(count - 1)
-            props.onCheckIngredient(checked, props.ingredientName, count - 1)
+            setCount(count - 1);
+            props.onCheckIngredient(checked, props.ingredientName, count - 1);
         }
 
     }
 
     const increment = () => {
-       if (count < 10) {
-        setCount(count + 1)
-        props.onCheckIngredient(checked, props.ingredientName, count + 1)
+       if (count < 10 && count >= 1) {
+        setCount(count + 1);
+        props.onCheckIngredient(checked, props.ingredientName, count + 1);
        }
 
     }
@@ -33,11 +45,11 @@ function ListItem(props) {
         <div className='product-list'>
             {props.ingredientName}
             <input type="checkbox" checked={checked} onChange={handelClick} />
-            {checked ? 
+            {props.isCounter === "true" ? 
                 <div className='control-panel'>
-                    <button onClick={decrement}>-</button>
+                    <button className='btn btn-decrement' onClick={decrement}>-</button>
                     <span> {count} </span>
-                    <button onClick={increment}>+</button>
+                    <button className='btn btn-increment' onClick={increment}>+</button>
                 </div>: 
                 null}
         </div>

@@ -40,7 +40,7 @@ function App() {
   const handlerSelectCity = (n) => {setCurrentIndex(n)}
 //--------------------------------
 
-  const onCheck = (ingredientName, checked, count ) =>  {
+  const onCheck = (ingredientName, checked, count) =>  {
     console.log(checked, ingredientName, count)
   }
 
@@ -71,11 +71,11 @@ function App() {
       }/>
       <Title title="Goods"/>
       <Content />
-      <ListItem ingredientName="milk" onCheckIngredient={onCheck}/>
-      <ListItem ingredientName="meat" onCheckIngredient={onCheck}/>
-      <ListItem ingredientName="bread" onCheckIngredient={onCheck}/>
-      <ListItem ingredientName="sausages" onCheckIngredient={onCheck}/>
-      <ListItem ingredientName="butter" onCheckIngredient={onCheck}/>
+      <ListItem ingredientName="milk" onCheckIngredient={onCheck} isCounter="true"/>
+      <ListItem ingredientName="meat" onCheckIngredient={onCheck} isCounter="true"/>
+      <ListItem ingredientName="bread" onCheckIngredient={onCheck} isCounter="false"/>
+      <ListItem ingredientName="sausages" onCheckIngredient={onCheck} isCounter="true"/>
+      <ListItem ingredientName="butter" onCheckIngredient={onCheck} isCounter="true"/>
       <City 
         cities={cities} 
         onChangeCity={handlerChangeCity}
