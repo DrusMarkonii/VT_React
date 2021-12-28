@@ -40,8 +40,8 @@ function App() {
   const handlerSelectCity = (n) => {setCurrentIndex(n)}
 //--------------------------------
 
-  const onCheck = (ingredientName, checked ) =>  {
-    console.log(checked, ingredientName)
+  const onCheck = (ingredientName, checked, count ) =>  {
+    console.log(checked, ingredientName, count)
   }
 
 
